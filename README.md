@@ -40,7 +40,7 @@ This method should return the role of the the user. This is Authoritah's interfa
 
 * Create config/access_rights/default.csv (path can be changed in the User model)
 
-![alt text](https://www.dropbox.com/s/86qpkxse70jsm15/Screenshot%202015-08-03%2020.45.55.png?dl=0)
+![default.csv](https://photos-4.dropbox.com/t/2/AACrz2ZBvZ3IW-jkCCnZTFgZsb2rJJ7uLdF6jKz4B-448w/12/16078516/png/32x32/1/1438621200/0/2/Screenshot%202015-08-03%2020.45.55.png/CLSt1QcgASACIAMgBCAFIAYgBygBKAIoBw/xu44g4ZZUOlR81T6LJ4Ccaio-_LyAw3lDDlGOLMpRhI?size_mode=5)
 
 
 
