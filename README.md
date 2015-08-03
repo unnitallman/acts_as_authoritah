@@ -95,3 +95,5 @@ def access_control
 - We add a *config/access/<context>.csv* with rules that apply when we are in this particular context. This ACL will be merged with *default.csv* dynamically during run time. If the same rules are present in default.csv and in *<context>.csv*, the one in *<context>.csv* will take precedence.
 
 if the possible values of project.state are 'draft', 'published' and 'archived', then you will have to add *draft.csv*, *published.csv* and *archived.csv*
+
+- All arguments passed to **can?** method will be passed on to the **User#usertype** method. This would allow parameters to be passed from controller, that might help determining the *usertype* at runtime, if your app has such a logic.
