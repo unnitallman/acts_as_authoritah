@@ -83,13 +83,13 @@ If your app has dynamic roles ie. role of a particular user change when he navig
 - We pass a *context* parameter to the **can?**. 
 
 ```
-def access_control
-     identifier = [controller.class.to_s, controller.action_name].join('#')
+  def access_control
+    identifier = [controller.class.to_s, controller.action_name].join('#')
      
-     unless current_user.can? identifier, context: current_project.state
-       deny_access
-     end
-   end
+    unless current_user.can? identifier, context: current_project.state
+      deny_access
+    end
+  end
 ```
 
 - We add a *config/access/<context>.csv* with rules that apply when we are in this particular context. This ACL will be merged with *default.csv* dynamically during run time. If the same rules are present in default.csv and in *<context>.csv*, the one in *<context>.csv* will take precedence.
