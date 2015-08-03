@@ -44,7 +44,7 @@ This method should return the role of the the user. This is Authoritah's interfa
 
 Last 4 columns are roles. You should replace them with roles in your app. These should exactly be the values that the **User#userype** method should return. You can any add any number of columns as there are roles in your app.
 
-Row 2 means that all acions in the _ForumController_ are accessible only for _site_admin_ and _project_admin_ users.
+Row 2 means that all actions in the _ForumController_ are accessible only for _site_admin_ and _project_admin_ users.
 
 Row 3 means that all actions in the _CommentsController_ are accessible only for _registered_user_.
 
@@ -62,7 +62,7 @@ Row 6 means that *save_response* action of the *SurveyController* is accessible 
    def access_control
      identifier = [controller.class.to_s, controller.action_name].join('#')
      
-     unless present_user.can? identifier
+     unless current_user.can? identifier
        deny_access
      end
    end
@@ -75,4 +75,23 @@ Row 6 means that *save_response* action of the *SurveyController* is accessible 
    
 ```
 
+Advanced Usage
+--------------
 
+If your app has dynamic roles ie. role of a particular user change when he navigates from one part of the app to another, Authoritah can handle this using *context*.
+
+1. We pass a *context* parameter to the **can?**. 
+
+```
+def access_control
+     identifier = [controller.class.to_s, controller.action_name].join('#')
+     
+     unless current_user.can? identifier, context: current_project.state
+       deny_access
+     end
+   end
+```
+
+2. We add a *config/access/<context>.csv* with rules that apply when we are in this particular context. This ACL will be merged with *default.csv* dynamically during run time. If the same rules are present in default.csv and in *<context>.csv*, the one in *<context>.csv* will take precedence.
+
+if the possible values of project.state are 'draft', 'published' and 'archived', then you will have to add *draft.csv*, *published.csv* and *archived.csv*
