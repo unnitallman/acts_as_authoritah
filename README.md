@@ -42,5 +42,10 @@ This method should return the role of the the user. This is Authoritah's interfa
 
 ![default.csv](https://photos-4.dropbox.com/t/2/AACrz2ZBvZ3IW-jkCCnZTFgZsb2rJJ7uLdF6jKz4B-448w/12/16078516/png/32x32/1/1438621200/0/2/Screenshot%202015-08-03%2020.45.55.png/CLSt1QcgASACIAMgBCAFIAYgBygBKAIoBw/xu44g4ZZUOlR81T6LJ4Ccaio-_LyAw3lDDlGOLMpRhI?size_mode=5)
 
-
+- Last 4 columns are roles. You should replace them with roles in your app. These should exactly be the values that the **User#userype** method should return. You can any add any number of columns as there are roles in your app.
+- Row 2 means that all actions in the _ForumController_ are accessible only for _site_admin_ and _project_admin_ users.
+- Row 3 means that all actions in the _CommentsController_ are accessible only for _registered_user_.
+- Row 4 means that all actions in the _VotesController_ are accessible only for _registered_user_ and _anonymous_user_.
+- Row 5 means that all actions in all controllers that are under the _Admin::_ scope are accessible only to _site_admin_ users.
+- Row 6 means that *save_response* action of the *SurveyController* is accessible only by *project_admin* and *register_user*. 
 
