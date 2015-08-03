@@ -80,7 +80,7 @@ Advanced Usage
 
 If your app has dynamic roles ie. role of a particular user change when he navigates from one part of the app to another, Authoritah can handle this using *context*.
 
-1. We pass a *context* parameter to the **can?**. 
+- We pass a *context* parameter to the **can?**. 
 
 ```
 def access_control
@@ -92,6 +92,6 @@ def access_control
    end
 ```
 
-2. We add a *config/access/<context>.csv* with rules that apply when we are in this particular context. This ACL will be merged with *default.csv* dynamically during run time. If the same rules are present in default.csv and in *<context>.csv*, the one in *<context>.csv* will take precedence.
+- We add a *config/access/<context>.csv* with rules that apply when we are in this particular context. This ACL will be merged with *default.csv* dynamically during run time. If the same rules are present in default.csv and in *<context>.csv*, the one in *<context>.csv* will take precedence.
 
 if the possible values of project.state are 'draft', 'published' and 'archived', then you will have to add *draft.csv*, *published.csv* and *archived.csv*
